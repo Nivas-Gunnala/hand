@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HandyHelp</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    header.navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 10%;
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .glitch-btn, .glitch-btn::after {
+      padding: 10px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: transparent;
+      position: relative;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .glitch-btn::after {
+      --move1: inset(50% 50% 50% 50%);
+      --move2: inset(31% 0 40% 0);
+      --move3: inset(39% 0 15% 0);
+      --move4: inset(45% 0 40% 0);
+      --move5: inset(45% 0 6% 0);
+      --move6: inset(14% 0 61% 0);
+      clip-path: var(--move1);
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      text-align: center;
+    }
+
+    .glitch-btn:hover::after {
+      animation: glitch_4011 1s;
+      animation-timing-function: steps(2, end);
+      text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+      background-color: transparent;
+      border: 3px solid rgb(0, 255, 213);
+    }
+
+    .glitch-btn:hover {
+      text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
+      background-color: transparent;
+      border: 1px solid rgb(0, 255, 213);
+      box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+    }
+
+    @keyframes glitch_4011 {
+      0% { clip-path: var(--move1); transform: translate(0px,-10px); }
+      10% { clip-path: var(--move2); transform: translate(-10px,10px); }
+      20% { clip-path: var(--move3); transform: translate(10px,0px); }
+      30% { clip-path: var(--move4); transform: translate(-10px,10px); }
+      40% { clip-path: var(--move5); transform: translate(10px,-10px); }
+      50% { clip-path: var(--move6); transform: translate(-10px,10px); }
+      60% { clip-path: var(--move1); transform: translate(10px,-10px); }
+      70% { clip-path: var(--move3); transform: translate(-10px,10px); }
+      80% { clip-path: var(--move2); transform: translate(10px,-10px); }
+      90% { clip-path: var(--move4); transform: translate(-10px,10px); }
+      100% { clip-path: var(--move1); transform: translate(0); }
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 10%;
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      font-size: 1rem;
+    }
+
+    /* Center button container */
+    .center-button-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* nikk7007 Button Styling */
+    .btn {
+  --color: #ec31ef;
+  --color2: rgb(10, 25, 30);
+  padding: 0.8em 1.75em;
+  background-color: transparent;
+  border-radius: 6px;
+  border: .3px solid var(--color);
+  transition: .5s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 17px;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  color: var(--color);
+  margin-top: 100px; /* 👈 This moves it down a bit */
+}
+
+    .btn::after, .btn::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      transform: skew(90deg) translate(-50%, -50%);
+      position: absolute;
+      inset: 50%;
+      left: 25%;
+      z-index: -1;
+      transition: .5s ease-out;
+      background-color: var(--color);
+    }
+
+    .btn::before {
+      top: -50%;
+      left: -25%;
+      transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+    }
+
+    .btn:hover::before {
+      transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+    }
+
+    .btn:hover::after {
+      transform: skew(45deg) translate(-50%, -50%);
+    }
+
+    .btn:hover {
+      color: var(--color2);
+    }
+
+    .btn:active {
+      filter: brightness(.7);
+      transform: scale(.98);
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- Video Background -->
+  <video autoplay muted loop class="video-background">
+    <source src="WhatsApp Video 2025-05-03 at 6.32.03 PM.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="logo">HandyHelp</div>
+    <div class="nav-buttons">
+      <a href="index.html" class="glitch-btn" data-text="HOME">HOME</a>
+      <a href="about.html" class="glitch-btn" data-text="ABOUT">ABOUT</a>
+      <a href="contact.html" class="glitch-btn" data-text="CONTACT">CONTACT</a>
+    </div>
+  </header>
+
+  <!-- Center Button -->
+  <div class="center-button-container">
+    <button class="btn"><a href="login.html">LOG IN</a></button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+  </footer>
+
+</body>
+</html>

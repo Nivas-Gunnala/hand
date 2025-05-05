@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - HandyHelp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+      background-image: url('imgg.webp'); /* Updated background image */
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Header Styles */
+    header.navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 85px;
+      background: linear-gradient(135deg, #111214, #141415);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fcf9f8;
+    }
+
+    nav.nav-buttons {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .glitch-btn {
+      position: relative;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .glitch-btn::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: white;
+      text-align: center;
+      clip-path: inset(50% 50% 50% 50%);
+      pointer-events: none;
+    }
+
+    .glitch-btn:hover::after {
+      animation: glitch_4011 1s steps(2, end);
+      text-shadow: -2px -2px 0 #1df2f0, 2px 2px 0 #E94BE8;
+      border: 2px solid #00ffd5;
+    }
+
+    .glitch-btn:hover {
+      border: 1px solid #00ffd5;
+      box-shadow: 0 0 10px #00ffd5;
+    }
+
+    @keyframes glitch_4011 {
+      0% { clip-path: inset(50% 50% 50% 50%); transform: translate(0, -10px); }
+      20% { clip-path: inset(30% 0 40% 0); transform: translate(-10px, 5px); }
+      40% { clip-path: inset(45% 0 15% 0); transform: translate(10px, -5px); }
+      60% { clip-path: inset(15% 0 55% 0); transform: translate(-10px, 5px); }
+      80% { clip-path: inset(35% 0 35% 0); transform: translate(10px, -5px); }
+      100% { clip-path: inset(50% 50% 50% 50%); transform: translate(0, 0); }
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 8rem 2rem 2rem;
+      max-width: 900px;
+      margin: 130px auto 2rem;
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .about-section h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #ff914d;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #50ea09;
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      color: #f0f0f0;
+      margin-bottom: 1.8rem;
+      text-align: left;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .highlight {
+      color: #1df2f0;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #111010;
+      background-color: #000000;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+      color: #ff914d;
+    }
+
+    footer a {
+      color: #50ea09;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">HandyHelp</div>
+    <nav class="nav-buttons">
+      <a href="index.html" class="glitch-btn" data-text="HOME">HOME</a>
+      <a href="about.html" class="glitch-btn" data-text="ABOUT">ABOUT</a>
+      <a href="contact.html" class="glitch-btn" data-text="CONTACT">CONTACT</a>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <h1>About Us</h1>
+    
+    <h2>Who We Are</h2>
+    <p>
+      HandyHelp is a community-driven platform designed to connect individuals in need of assistance with volunteers willing to lend a hand. From tech help to home chores, we bridge the gap with reliability and trust.
+    </p>
+
+    <h2>Our Mission</h2>
+    <p>
+      To empower communities by fostering a network of support, where verified helpers can offer their skills and time to those who need it — efficiently, locally, and securely.
+    </p>
+
+    <h2>What We Do</h2>
+    <p>
+      We match volunteers and job providers based on their needs, location, and availability. HandyHelp verifies users, manages job listings, and ensures a safe and easy experience.
+    </p>
+
+    <h2>How It Works</h2>
+    <ol class="text-left list-decimal list-inside max-w-xl mx-auto space-y-1">
+      <li>Sign up and verify your identity</li>
+      <li>Post or find tasks near your location</li>
+      <li>Connect and communicate securely</li>
+      <li>Complete tasks and build trust</li>
+    </ol>
+
+    <h2>Why Choose HandyHelp?</h2>
+    <ul class="text-left list-disc list-inside max-w-xl mx-auto space-y-2">
+      <li><strong>Verified users:</strong> Safety is our top priority.</li>
+      <li><strong>Location-based access:</strong> Find help nearby.</li>
+      <li><strong>User-friendly design:</strong> Built with simplicity and power.</li>
+      <li><strong>Free to use:</strong> We support community-driven growth.</li>
+    </ul>
+
+    <h2>Join Us</h2>
+    <p>
+      Are you a passionate volunteer, or someone who needs a hand? Become a part of HandyHelp today and make a real impact in your community.
+    </p>
+
+    <h2>Want to Connect?</h2>
+    <p>
+      We’d love to hear from you. Whether it's feedback, collaboration, or just a hello — 
+      <br>
+      <a href="contact.html" class="text-teal-600 underline hover:text-teal-800 transition-colors">get in touch</a>.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+
+  </footer>
+
+</body>
+</html>
