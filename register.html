@@ -6,6 +6,8 @@
   <title>Register | Handy Help</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --background-color: #F9FAFB;
@@ -122,6 +124,87 @@
       border-radius: 8px;
       display: none;
     }
+
+    /* Modal styles */
+    .terms-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-container {
+      max-height: 80vh;
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .modal-container-header {
+      padding: 16px 32px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #bb0bb3, #0aabf6);
+      color: white;
+    }
+
+    .modal-container-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1;
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+
+    .modal-container-title svg {
+      width: 32px;
+      height: 32px;
+      color: #fff;
+    }
+
+    .modal-container-body {
+      padding: 24px 32px;
+      overflow-y: auto;
+    }
+
+    .modal-container-body h2 {
+      color: #0dcaf0;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+
+    .modal-container-body hr {
+      border-top: 2px dashed #0dcaf0;
+      width: 80px;
+      margin: 10px 0;
+    }
+
+    /* 👉 Make all <p> inside .modal-container-body black */
+    .modal-container-body p {
+      color: black;
+    }
+
+    .icon-button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -180,7 +263,7 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="acceptTerms" required>
                   <label class="form-check-label text-white" for="acceptTerms">
-                    I agree to the <a href="#" class="text-success">Terms of Service</a> and <a href="#" class="text-success">Privacy Policy</a>
+                    I agree to the <a href="#" class="text-success" onclick="document.querySelector('.terms-modal').style.display='flex'; return false;">Terms of Service</a> and <a href="#" class="text-success">Privacy Policy</a>
                   </label>
                 </div>
               </div>
@@ -197,6 +280,46 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div class="terms-modal">
+    <article class="modal-container">
+      <header class="modal-container-header">
+        <span class="modal-container-title">
+          <svg aria-hidden="true" height="24" width="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M14 9V4H5v16h6.056c.328.417.724.785 1.18 1.085l1.39.915H3.993A.993.993 0 0 1 3 21.008V2.992C3 2.455 3.449 2 4.002 2h10.995L21 8v1h-7zm-2 2h9v5.949c0 .99-.501 1.916-1.336 2.465L16.5 21.498l-3.164-2.084A2.953 2.953 0 0 1 12 16.95V11zm2 5.949c0 .316.162.614.436.795l2.064 1.36 2.064-1.36a.954.954 0 0 0 .436-.795V13h-5v3.949z" fill="currentColor"></path>
+          </svg>
+          Terms & Conditions
+        </span>
+        <button class="icon-button" onclick="document.querySelector('.terms-modal').style.display='none'">
+          <svg height="24" width="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" fill="currentColor"></path>
+          </svg>
+        </button>
+      </header>
+      <section class="modal-container-body">
+        <h2>1. Acceptance of Terms</h2><hr>
+        <p>By accessing this website, you agree to be bound by these terms of service, applicable laws, and regulations, and agree to comply with local laws.</p>
+        <h2>2. Use License</h2><hr>
+        <p>Permission is granted to temporarily download one copy of the materials for personal, non-commercial viewing only. This is a license, not a transfer of title.</p>
+        <h2>3. Disclaimer</h2><hr>
+        <p>Materials are provided 'as is'. We disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+        <h2>4. Limitations</h2><hr>
+        <p>We shall not be liable for any damages arising out of the use of this website.</p>
+        <h2>5. Revisions and Errata</h2><hr>
+        <p>Content may include errors. We do not guarantee materials are accurate, complete, or current, and may make changes at any time without notice.</p>
+        <h2>6. Links</h2><hr>
+        <p>We are not responsible for contents of linked sites. Use of any linked website is at the user's own risk.</p>
+        <h2>7. Modifications</h2><hr>
+        <p>We may revise these terms at any time without notice. By using this website, you agree to be bound by the current version of these terms of service.</p>
+        <h2>8. Governing Law</h2><hr>
+        <p>Any claim relating to this website shall be governed by the laws of our jurisdiction without regard to its conflict of law provisions.</p>
+        <p>Questions? Contact us at <a href="mailto:nivasreddy.gpr@gmail.com">mail us</a>.</p>
+      </section>
+    </article>
   </div>
 
   <script>
@@ -272,4 +395,5 @@
   </script>
 </body>
 </html>
+
 
